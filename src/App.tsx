@@ -1,11 +1,11 @@
 import './App.css'
 
 function App() {
-  return (
-    <div>
-      App
-    </div>
-  )
+  const test = 'test...'
+
+  console.log(test)
+
+  return <div>App</div>
 }
 
 export default App
