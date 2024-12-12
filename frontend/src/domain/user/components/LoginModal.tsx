@@ -33,7 +33,8 @@ const LoginModal: React.FC = () => {
             onChange={(value) => setValue(value)}
           ></Segmented>
         </div>
-        <div className="mt-4"></div>
+        <div
+          className="mt-4"></div>
       </Modal>
     </div>
   )
