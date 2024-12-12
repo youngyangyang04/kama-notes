@@ -22,7 +22,6 @@ export const AdminRouteConfig = (
     <Route path={CATEGORY_MANAGE} element={<AdminCategory />} />
     <Route path={QUESTION_LIST_MANAGE} element={<AdminQuestionList />} />
     <Route path="*" element={<NotFound />}></Route>
-
     <Route path="*" element={<NotFound />}></Route>
   </Route>
 )
