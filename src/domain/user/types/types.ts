@@ -14,9 +14,13 @@ export enum Admin {
   ADMIN = 1,
 }
 
-export interface User {
+/**
+ * 数据库中的用户实体
+ */
+export interface UserEntity {
   userId: bigint
   account: string
+  password: string
   username: string
   gender: Gender
   birthday: string
@@ -26,4 +30,15 @@ export interface User {
   signature: string
   isBanned: Banned
   isAdmin: Admin
+  lastLoginAt: string
+  createdAt: string
+  updatedAt: string
 }
+
+/**
+ * Redux 中的用户状态
+ */
+export type UserState = Omit<
+  UserEntity,
+  'password' | 'isBanned' | 'createdAt' | 'updatedAt' | 'lastLoginAt'
+>
