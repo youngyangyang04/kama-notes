@@ -3,7 +3,7 @@ import type { UserState } from '../domain/user'
 import { Gender, Admin } from '../domain/user'
 
 const initialUserState: UserState = {
-  userId: 0n,
+  userId: '',
   username: '',
   account: '',
   email: '',

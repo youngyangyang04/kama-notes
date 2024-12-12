@@ -13,3 +13,8 @@ export const QUESTION_SET = '/question-set'
  * 题单路径
  */
 export const QUESTION_LIST = '/question-list'
+
+/**
+ * 个人主页
+ */
+export const USER_HOME = '/user'

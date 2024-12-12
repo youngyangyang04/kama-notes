@@ -4,6 +4,8 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { MenuProps } from 'antd'
 import { HOME_PAGE, QUESTION_LIST, QUESTION_SET } from '../../router/config.ts'
 import Logo from '../logo/Logo.tsx'
+import { useApp } from '../../../../base/hooks'
+import { LoginModal, UserAvatarMenu } from '../../../../domain/user'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
@@ -37,6 +39,11 @@ const NavBar: React.FC = () => {
     }
   }, [location.pathname])
 
+  /**
+   * 获取 app 信息
+   */
+  const app = useApp()
+
   return (
     <nav className="flex justify-between px-32">
       <div className="flex items-center gap-2">
@@ -48,7 +55,9 @@ const NavBar: React.FC = () => {
           selectedKeys={selectedMenuItem}
         ></Menu>
       </div>
-      <div></div>
+      <div className="flex items-center gap-2">
+        {app.isLogin ? <UserAvatarMenu /> : <LoginModal />}
+      </div>
     </nav>
   )
 }

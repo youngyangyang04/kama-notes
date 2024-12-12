@@ -16,6 +16,8 @@ import {
   QUESTION_MANAGE,
   USER_MANAGE,
 } from './router/config.ts'
+import { useDispatch } from 'react-redux'
+import { intoAdminApp } from '../../store/appSlice.ts'
 
 const { Header, Content, Sider } = Layout
 
@@ -65,12 +67,24 @@ const AdminApp: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken()
 
+  /**
+   * 监听路由变化，设置选中菜单项
+   */
   const location = useLocation()
   const [selectedKeys, setSelectedKeys] = useState([''])
 
   useEffect(() => {
     setSelectedKeys([location.pathname])
   }, [location.pathname])
+
+  /**
+   * 设置 Redux 中 isAdminApp
+   */
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(intoAdminApp())
+  }, [dispatch])
 
   return (
     <Layout hasSider>

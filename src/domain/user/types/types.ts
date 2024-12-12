@@ -18,7 +18,7 @@ export enum Admin {
  * 数据库中的用户实体
  */
 export interface UserEntity {
-  userId: bigint
+  userId: string
   account: string
   password: string
   username: string
