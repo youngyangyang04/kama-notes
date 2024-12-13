@@ -3,7 +3,7 @@ import { Routes } from 'react-router-dom'
 import { AdminRouteConfig } from './apps/admin/router'
 import { UserRouteConfig } from './apps/user/router'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ErrorFallback } from './base/components'
+import { ErrorFallback, HostModal } from './base/components'
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         {AdminRouteConfig}
         {UserRouteConfig}
       </Routes>
+      <HostModal />
     </ErrorBoundary>
   )
 }

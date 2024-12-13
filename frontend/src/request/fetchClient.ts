@@ -1,9 +1,23 @@
 import { Code, HttpClient, Options, RequestTuple, Response } from './types.ts'
+import { kamanoteHost } from '../base/constants'
 
 export default class FetchClient implements HttpClient {
-  private readonly baseURL = localStorage.getItem('baseURL') ?? ''
+  private readonly baseURL = localStorage.getItem(kamanoteHost) ?? ''
 
   constructor() {}
+
+  // 处理路径参数
+  private processPathParams(path: string, pathParams: Array<any>): string {
+    let paramIndex = 0
+    // 替换路径中的占位符
+    return path.replace(/\{(\w+)\}/g, () => {
+      const param = pathParams[paramIndex++]
+      if (param === undefined) {
+        throw new Error('Missing path parameter')
+      }
+      return encodeURIComponent(param)
+    })
+  }
 
   async request<T>(
     requestTuple: RequestTuple,
@@ -11,6 +25,7 @@ export default class FetchClient implements HttpClient {
   ): Promise<Response<T>> {
     const [method, requestPath] = requestTuple
 
+    // 最终的请求路径
     let requestURL = `${this.baseURL}${requestPath}`
 
     // 默认请求头
@@ -25,11 +40,21 @@ export default class FetchClient implements HttpClient {
       headers,
     }
 
+    // 处理路径参数
+    if (options?.pathParams) {
+      try {
+        requestURL = this.processPathParams(requestURL, options.pathParams)
+      } catch (err) {
+        console.error(err)
+        throw new Error('Failed to process path parameters')
+      }
+    }
+
     /**
-     * 处理 GET 请求，将参数拼接到 URL 中
+     * 处理 GET 请求的 query 参数
      */
-    if (method === 'GET' && options?.query) {
-      const queryString = new URLSearchParams(options.query).toString()
+    if (method === 'GET' && options?.queryParams) {
+      const queryString = new URLSearchParams(options.queryParams).toString()
       requestURL += queryString ? `?${queryString}` : ''
     }
 

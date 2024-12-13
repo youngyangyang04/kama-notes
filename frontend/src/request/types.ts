@@ -20,7 +20,8 @@ export type RequestTuple = [HttpMethod, RequestPath]
 export type Options = {
   headers?: Record<string, string>
   body?: FormData | Record<string, any>
-  query?: Record<string, any>
+  queryParams?: Record<string, any>
+  pathParams?: Array<any>
 }
 
 /**
