@@ -24,4 +24,11 @@ export const userService = {
       body: body,
     })
   },
+
+  /**
+   * 自动登录接口
+   */
+  whoamiService: () => {
+    return httpClient.request<UserState>(userApiList.whoami)
+  },
 }

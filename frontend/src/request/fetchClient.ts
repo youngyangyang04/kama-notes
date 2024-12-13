@@ -1,5 +1,5 @@
 import { Code, HttpClient, Options, RequestTuple, Response } from './types.ts'
-import { kamanoteHost } from '../base/constants'
+import { kamanoteHost, kamanoteUserToken } from '../base/constants'
 
 export default class FetchClient implements HttpClient {
   private readonly baseURL = localStorage.getItem(kamanoteHost) ?? ''
@@ -32,6 +32,12 @@ export default class FetchClient implements HttpClient {
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
       ...(options?.headers || {}),
+    }
+
+    // 如果存在 token，则需要携带 token
+    if (localStorage.getItem(kamanoteUserToken)) {
+      headers['Authorization'] =
+        `Bearer ${localStorage.getItem(kamanoteUserToken)}`
     }
 
     // Fetch API 配置
