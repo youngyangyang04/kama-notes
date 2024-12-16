@@ -105,7 +105,16 @@ const AdminApp: React.FC = () => {
         style={{ marginInlineStart: collapsed ? 80 : 200 }}
         className="transition-all"
       >
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Header
+          style={{
+            padding: 0,
+            background: colorBgContainer,
+            position: 'sticky',
+            top: 0,
+            zIndex: 20,
+          }}
+          className="shadow"
+        />
         <Content
           style={{
             margin: '24px 16px 0',

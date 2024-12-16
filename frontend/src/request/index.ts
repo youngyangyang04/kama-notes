@@ -22,6 +22,14 @@ export type {
   ApiList,
 }
 
+const defaultPagination: Pagination = {
+  page: 1,
+  pageSize: 10,
+  total: 10,
+}
+
+export { defaultPagination }
+
 /**
  * 导出 HTTP 请求的客户端
  */

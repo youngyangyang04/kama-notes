@@ -10,3 +10,8 @@ export const userApiList: ApiList = {
   updateMe: ['PATCH', '/users/me'],
   uploadImage: ['POST', '/upload/image'],
 }
+
+// 管理端的 apiList
+export const adminUserApiList: ApiList = {
+  getUserList: ['GET', '/admin/users'],
+}

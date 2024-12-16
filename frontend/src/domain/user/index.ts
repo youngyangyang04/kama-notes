@@ -5,8 +5,10 @@ import UserAvatarMenu from './components/UserAvatarMenu.tsx'
 import UserInfoForm from './components/UserInfoForm.tsx'
 import { userService } from './service/userService.ts'
 import { useLogin } from './hooks/useLogin.ts'
+import UserList from './components/UserList.tsx'
 
 export type { UserEntity, UserState }
 export { Gender, Admin }
 export { LoginModal, UserAvatarMenu, UserInfoForm }
 export { userService, useLogin }
+export { UserList }
