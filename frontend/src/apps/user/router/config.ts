@@ -18,3 +18,11 @@ export const QUESTION_LIST = '/question-list'
  * 个人主页
  */
 export const USER_HOME = '/user'
+
+/**
+ * 个人中心
+ */
+export const USER_CENTER = '/user-center'
+export const USER_INFO = '/user-center/info'
+export const USER_COLLECT = '/user-center/collect'
+export const USER_NOTE = '/user-center/note'

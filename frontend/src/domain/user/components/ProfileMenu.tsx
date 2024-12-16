@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Config, Logout, Permissions, User } from '@icon-park/react'
-import { USER_HOME } from '../../../apps/user/router/config.ts'
+import { USER_CENTER, USER_HOME } from '../../../apps/user/router/config.ts'
 import { useUser } from '../hooks/useUser.ts'
 import { useApp } from '../../../base/hooks'
 import { useLogout } from '../hooks/useLogout.ts'
@@ -31,7 +31,7 @@ const ProfileMenu: React.FC = () => {
         />
         个人主页
       </NavLink>
-      <NavLink className={itemCss} to={`${USER_HOME}/${user?.userId}`}>
+      <NavLink className={itemCss} to={`${USER_CENTER}`}>
         <User
           theme="multi-color"
           size="18"

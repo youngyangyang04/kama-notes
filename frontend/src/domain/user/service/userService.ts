@@ -31,4 +31,22 @@ export const userService = {
   whoamiService: () => {
     return httpClient.request<UserState>(userApiList.whoami)
   },
+
+  /**
+   * 更新用户个人信息
+   */
+  updateMeService: (body: Partial<UserState>) => {
+    return httpClient.request(userApiList.updateMe, {
+      body: body,
+    })
+  },
+
+  /**
+   * 上传图片接口
+   */
+  uploadImageService: (body: FormData) => {
+    return httpClient.request(userApiList.uploadImage, {
+      body: body,
+    })
+  },
 }

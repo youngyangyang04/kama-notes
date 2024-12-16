@@ -45,7 +45,7 @@ const NavBar: React.FC = () => {
   const app = useApp()
 
   return (
-    <nav className="flex justify-between px-32">
+    <nav className="flex justify-between bg-[#ffffff] px-32 dark:bg-[#141414]">
       <div className="flex items-center gap-2">
         <Logo />
         <Menu

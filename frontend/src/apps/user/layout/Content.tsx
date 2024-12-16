@@ -7,7 +7,7 @@ interface ContentProps {
 const Content: React.FC<ContentProps> = ({ children }) => {
   return (
     <main className="content-height w-full overflow-y-hidden">
-      <div className="h-full w-full overflow-y-auto">{children}</div>
+      <div className="h-full w-full overflow-y-auto pt-4">{children}</div>
     </main>
   )
 }

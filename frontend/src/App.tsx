@@ -8,6 +8,9 @@ import { useLogin } from './domain/user'
 import { useEffect } from 'react'
 
 function App() {
+  /**
+   * 自动登录功能
+   */
   const { whoAmIHandle } = useLogin()
 
   useEffect(() => {

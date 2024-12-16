@@ -9,7 +9,12 @@ import { store } from './store/store.ts'
 
 createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
-    <ConfigProvider locale={zhCN}>
+    <ConfigProvider
+      locale={zhCN}
+      // theme={{
+      //   algorithm: theme.darkAlgorithm,
+      // }}
+    >
       <BrowserRouter
         future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
       >

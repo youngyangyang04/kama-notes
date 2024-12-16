@@ -8,4 +8,5 @@ export const userApiList: ApiList = {
   whoami: ['POST', '/auth/whoami'],
   getUser: ['GET', '/users/{userId}'],
   updateMe: ['PATCH', '/users/me'],
+  uploadImage: ['POST', '/upload/image'],
 }
