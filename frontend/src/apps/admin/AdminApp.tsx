@@ -18,6 +18,7 @@ import {
 } from './router/config.ts'
 import { useDispatch } from 'react-redux'
 import { intoAdminApp } from '../../store/appSlice.ts'
+import { UserAvatarMenu } from '../../domain/user'
 
 const { Header, Content, Sider } = Layout
 
@@ -114,7 +115,11 @@ const AdminApp: React.FC = () => {
             zIndex: 20,
           }}
           className="shadow"
-        />
+        >
+          <div className="flex justify-end px-24">
+            <UserAvatarMenu />
+          </div>
+        </Header>
         <Content
           style={{
             margin: '24px 16px 0',
