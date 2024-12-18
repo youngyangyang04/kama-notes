@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CategoryTree, OptMode } from '../types/types.ts'
 import { Button, Popconfirm, Table, Tooltip } from 'antd'
 import { TableColumnsType, Tag } from 'antd'
-import { isOneLevelCategory } from '../utils'
+import { isParentCategory } from '../utils'
 import { AddSubset, AddThree, DeleteOne, EditTwo } from '@icon-park/react'
 import CategoryOptDrawer from './CategoryOptDrawer.tsx'
 import { useCategory } from '../hooks/useCategory.ts'
@@ -60,7 +60,7 @@ const CategoryList: React.FC = () => {
       key: 'parentCategoryId',
       render: (_, category) => (
         <>
-          {isOneLevelCategory(category) ? (
+          {isParentCategory(category) ? (
             <Tag color="red">父分类</Tag>
           ) : (
             <Tag color="green">子分类</Tag>
@@ -103,7 +103,7 @@ const CategoryList: React.FC = () => {
               </Tooltip>
             </Popconfirm>
             {/* 只有一级分类（父分类）才能添加子分类 */}
-            {isOneLevelCategory(category) && (
+            {isParentCategory(category) && (
               <Tooltip title={'添加子分类'}>
                 <AddSubset
                   theme="multi-color"

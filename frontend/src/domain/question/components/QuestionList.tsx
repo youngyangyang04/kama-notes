@@ -15,6 +15,9 @@ import { useQuestionList } from '../hooks/useQuestionList.ts'
 import { AddThree, DeleteOne, EditTwo } from '@icon-park/react'
 import QuestionAddDrawer from './QuestionAddDrawer.tsx'
 
+/**
+ * 管理端的问题列表
+ */
 const QuestionList: React.FC = () => {
   /**
    * 分页参数

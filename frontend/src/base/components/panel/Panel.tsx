@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface PanelProps {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const Panel: React.FC<PanelProps> = ({ children }) => {

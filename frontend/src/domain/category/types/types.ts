@@ -28,3 +28,12 @@ export type CategoryTree = Category & {
  * update: 修改
  */
 export type OptMode = 'create' | 'update'
+
+/**
+ * 分类树节点
+ */
+export interface CategoryTreeNode {
+  title: string
+  key: number // 对应 categoryId
+  children?: CategoryTreeNode[]
+}

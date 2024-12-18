@@ -26,3 +26,8 @@ export const USER_CENTER = '/user-center'
 export const USER_INFO = '/user-center/info'
 export const USER_COLLECT = '/user-center/collect'
 export const USER_NOTE = '/user-center/note'
+
+/**
+ * 题目路径
+ */
+export const QUESTION = '/questions'

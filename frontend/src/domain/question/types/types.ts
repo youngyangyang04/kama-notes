@@ -1,3 +1,5 @@
+import { UserQuestionStatus } from './service.ts'
+
 /**
  * 问题难度枚举
  */
@@ -34,6 +36,16 @@ export interface QuestionEntity {
 
   /** 记录更新时间 */
   updatedAt: string // ISO datetime format
+}
+
+/**
+ * 前端的题目展示内容
+ */
+export type QuestionWithUserStatus = Omit<
+  QuestionEntity,
+  'createdAt' | 'updatedAt' | 'categoryId'
+> & {
+  userQuestionStatus: UserQuestionStatus
 }
 
 /**

@@ -60,7 +60,15 @@ export default class FetchClient implements HttpClient {
      * 处理 GET 请求的 query 参数
      */
     if (method === 'GET' && options?.queryParams) {
-      const queryString = new URLSearchParams(options.queryParams).toString()
+      /**
+       * 对 queryParams 中的值为 undefined 的 key 进行过滤
+       */
+      const queryParams = Object.fromEntries(
+        Object.entries(options.queryParams).filter(
+          ([, value]) => value !== undefined,
+        ),
+      )
+      const queryString = new URLSearchParams(queryParams).toString()
       requestURL += queryString ? `?${queryString}` : ''
     }
 
@@ -71,6 +79,7 @@ export default class FetchClient implements HttpClient {
         delete headers['Content-Type']
         fetchOptions.body = options.body
       } else {
+        // TODO: JSON.stringify 会自动过滤 undefined 属性？?
         fetchOptions.body = JSON.stringify(options.body)
       }
     }

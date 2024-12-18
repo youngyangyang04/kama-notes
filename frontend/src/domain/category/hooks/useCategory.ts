@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CategoryTree } from '../types/types.ts'
 import { adminCategoryService } from '../service/categoryService.ts'
-import { isOneLevelCategory } from '../utils'
+import { isParentCategory } from '../utils'
 import { CreateCategoryBody } from '../types/categoryService.ts'
 
 export function useCategory() {
@@ -42,7 +42,7 @@ export function useCategory() {
       parentCategoryId: newCategory.parentCategoryId,
     })
     const newCategoryId = resp.data.categoryId
-    if (isOneLevelCategory(newCategory)) {
+    if (isParentCategory(newCategory)) {
       // 父分类的情况
       setCategoryTree((prev) => {
         return [
@@ -95,7 +95,7 @@ export function useCategory() {
     await adminCategoryService.deleteCategoryService(category.categoryId)
 
     // 从本地状态中删除对应的分类
-    if (isOneLevelCategory(category)) {
+    if (isParentCategory(category)) {
       // 父分类的情况
       setCategoryTree((prev) => {
         return prev.filter((item) => item.categoryId !== category.categoryId)
@@ -129,7 +129,7 @@ export function useCategory() {
     await adminCategoryService.updateCategoryService(updatedCategory)
 
     // 更新本地的分类
-    if (isOneLevelCategory(updatedCategory)) {
+    if (isParentCategory(updatedCategory)) {
       setCategoryTree((prev) => {
         return prev.map((item) => {
           if (item.categoryId === updatedCategory.categoryId) {

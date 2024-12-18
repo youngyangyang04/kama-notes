@@ -46,3 +46,10 @@ export type UpdateQuestionBody = Partial<CreateQuestionBody> & {
  * 操作类型定义
  */
 export type QuestionOptMode = 'update' | 'create'
+
+/**
+ * 用户完成
+ */
+export interface UserQuestionStatus {
+  finish: boolean
+}

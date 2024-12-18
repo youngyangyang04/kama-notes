@@ -3,6 +3,7 @@ import UserApp from '../UserApp.tsx'
 import {
   HOME,
   HOME_PAGE,
+  QUESTION_SET,
   USER_CENTER,
   USER_COLLECT,
   USER_INFO,
@@ -14,6 +15,7 @@ import UserCenter from '../pages/userCenter/UserCenter.tsx'
 import UserInfo from '../pages/userCenter/info/UserInfo.tsx'
 import UserCollect from '../pages/userCenter/collect/UserCollect.tsx'
 import UserNote from '../pages/userCenter/note/UserNote.tsx'
+import QuestionSet from '../pages/questionSet/QuestionSet.tsx'
 
 export const UserRouteConfig = (
   <Route path={HOME} element={<UserApp />}>
@@ -25,6 +27,7 @@ export const UserRouteConfig = (
       <Route path={USER_COLLECT} element={<UserCollect />}></Route>
       <Route path={USER_NOTE} element={<UserNote />}></Route>
     </Route>
+    <Route path={QUESTION_SET} element={<QuestionSet />}></Route>
     <Route path="/*" element={<NotFound />}></Route>
   </Route>
 )
