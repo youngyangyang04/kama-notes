@@ -1,6 +1,10 @@
 import { httpClient } from '../../../request'
 import { adminQuestionApiList, questionApiList } from '../api/questionApi.ts'
-import { QuestionEntity, QuestionWithUserStatus } from '../types/types.ts'
+import {
+  QuestionEntity,
+  QuestionWithUserNote,
+  QuestionWithUserStatus,
+} from '../types/types.ts'
 import {
   CreateQuestionBatchBody,
   CreateQuestionBody,
@@ -76,11 +80,26 @@ export const adminQuestionService = {
  * 用户端查询题目服务
  */
 export const questionService = {
+  /**
+   * 批量查询题目服务
+   */
   getQuestionListService: (params: QuestionQueryParams) => {
     return httpClient.request<QuestionWithUserStatus[]>(
       questionApiList.getQuestionList,
       {
         queryParams: params,
+      },
+    )
+  },
+
+  /**
+   * 获取单个题目详细信息服务
+   */
+  getQuestionByIdService: (questionId: number) => {
+    return httpClient.request<QuestionWithUserNote>(
+      questionApiList.getQuestionById,
+      {
+        pathParams: [questionId],
       },
     )
   },

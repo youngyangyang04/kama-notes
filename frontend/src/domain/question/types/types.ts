@@ -1,4 +1,4 @@
-import { UserQuestionStatus } from './service.ts'
+import { UserNote, UserQuestionStatus } from './service.ts'
 
 /**
  * 问题难度枚举
@@ -60,4 +60,14 @@ export const DefaultQuestion: Omit<
   difficulty: QuestionDifficulty.Easy,
   examPoint: null,
   viewCount: 0,
+}
+
+/**
+ * 笔记内容
+ */
+export type QuestionWithUserNote = Omit<
+  QuestionEntity,
+  'questionId' | 'createdAt' | 'updatedAt' | 'categoryId'
+> & {
+  userNote: UserNote
 }
