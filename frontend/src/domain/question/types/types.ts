@@ -39,6 +39,11 @@ export interface QuestionEntity {
 }
 
 /**
+ * 问题摘要字段
+ */
+export type QuestionSummary = Pick<QuestionEntity, 'questionId' | 'title'>
+
+/**
  * 前端的题目展示内容
  */
 export type QuestionWithUserStatus = Omit<

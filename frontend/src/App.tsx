@@ -6,6 +6,8 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorFallback, HostModal } from './base/components'
 import { useLogin } from './domain/user'
 import { useEffect } from 'react'
+import './base/styles/github-markdown.css'
+import './base/styles/github-markdown-light.css'
 
 function App() {
   /**

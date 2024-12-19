@@ -1,5 +1,4 @@
 import { UserEntity } from '../../user'
-import { QuestionEntity } from '../../question/types/types.ts'
 
 /**
  * 作者字段
@@ -13,11 +12,6 @@ export type UserActions = {
   isLiked: boolean
   isCollected: boolean
 }
-
-/**
- * 问题摘要字段
- */
-export type QuestionSummary = Pick<QuestionEntity, 'questionId' | 'title'>
 
 /**
  * Note 实体定义
